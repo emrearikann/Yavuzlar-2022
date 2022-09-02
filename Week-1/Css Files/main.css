@@ -153,11 +153,12 @@ main {
    outline: none;
    border: none;
    color: #ffc812;
+   padding-left: 1rem;
 }
 
 .todoListItem {
    text-decoration: none;
-   cursor: pointer;
+   /* cursor: pointer; */
    background: transparent;
    border: 1px solid #423e47;
    margin: 1.6rem 0;
@@ -174,10 +175,11 @@ main {
    display: flex;
    font-weight: 300;
    align-items: baseline;
+   justify-content: space-between;
 }
 
 .todoSpan {
-   padding-left: 0.5rem;
+   margin-left: 0.5rem;
 }
 
 .todoDone {

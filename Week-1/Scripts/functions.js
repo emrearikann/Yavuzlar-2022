@@ -21,8 +21,9 @@ function deleteTodo(deleteTodo) {
          todos.splice(index, 1);
       }
    });
-
    localStorage.setItem("todos", JSON.stringify(todos));
+   window.location.reload();
+   renderTodos(todos, filters);
 }
 
 const renderTodos = (todos, filters) => {
@@ -49,11 +50,12 @@ const generateTodoDOM = (todo) => {
    const containerEl = document.createElement("div");
    const checkbox = document.createElement("input");
    const todoText = document.createElement("span");
-   // const actions = document.createElement("div");
+   const actions = document.createElement("div");
    const removeBtn = document.createElement("button");
    const editBtn = document.createElement("button");
 
    checkbox.setAttribute("type", "checkbox");
+   checkbox.setAttribute("style", "cursor: pointer;");
    checkbox.checked = todo.completed;
    containerEl.appendChild(checkbox);
 
@@ -78,18 +80,43 @@ const generateTodoDOM = (todo) => {
    containerEl.classList.add("containerTodoListItem");
    todoEl.appendChild(containerEl);
 
-   removeBtn.textContent = "REMOVE";
-   removeBtn.classList.add("removeButton");
-   todoEl.appendChild(removeBtn);
-   removeBtn.addEventListener("click", (e) => {
-      removeBtn.textContent = "";
-      e.target.parentElement.remove();
-      deleteTodo(e.target.parentElement.textContent.trim());
+   todoEl.appendChild(actions);
+
+   editBtn.textContent = "EDIT";
+   editBtn.classList.add("removeButton");
+   actions.appendChild(editBtn);
+
+   editBtn.addEventListener("click", (e) => {
+      if (editBtn.textContent === "EDIT") {
+         editBtn.textContent = "SAVE";
+      }
+      if (editBtn.textContent === "SAVE") {
+         editBtn.textContent = "EDIT";
+      }
+      let todos = JSON.parse(localStorage.todos);
+      for (var i = 0; i < todos.length; i++) {
+         if (e.target.parentElement.parentElement.firstElementChild.textContent === todos[i].text) {
+            todoText.contentEditable = true;
+            todoText.focus();
+            todoText.textContent = "";
+            editBtn.textContent = "SAVE";
+            break;
+         }
+         todos[i].text = todoText.textContent;
+      }
+      localStorage.setItem("todos", JSON.stringify(todos));
    });
 
-   // editBtn.textContent = "EDIT";
-   // editBtn.classList.add("removeButton");
-   // todoEl.appendChild(editBtn);
+   removeBtn.textContent = "REMOVE";
+   removeBtn.classList.add("removeButton");
+   actions.appendChild(removeBtn);
+
+   removeBtn.addEventListener("click", (e) => {
+      removeBtn.textContent = "";
+      editBtn.textContent = "";
+      e.target.parentElement.parentElement.remove();
+      deleteTodo(e.target.parentElement.parentElement.textContent.trim());
+   });
 
    return todoEl;
 };
