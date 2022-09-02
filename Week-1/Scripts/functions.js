@@ -58,7 +58,7 @@ const generateTodoDOM = (todo) => {
    const todoText = document.createElement("span");
    const actions = document.createElement("div");
    const removeBtn = document.createElement("button");
-   const editBtn = document.createElement("button");
+   // const editBtn = document.createElement("button");
 
    checkbox.setAttribute("type", "checkbox");
    checkbox.setAttribute("style", "cursor: pointer;");
@@ -88,30 +88,29 @@ const generateTodoDOM = (todo) => {
 
    todoEl.appendChild(actions);
 
+   // Edit durumunda ID ile sıralama yapılmadığından dolayı sadece 1 tane todo için düzenleme işlemi yapılabiliyor. Ek olarak düzenlemeden sonra localStorage üzerinde yenileme yapılmadan 'completed' satate'i değiştirildiğinde todo kaydedilmiyor. Aşağıdaki comment içerisinde 'edit' butonuna ait kodlar bulunuyor.
+
+   /*
+
    editBtn.textContent = "EDIT";
    editBtn.classList.add("removeButton");
    actions.appendChild(editBtn);
 
    editBtn.addEventListener("click", (e) => {
-      if (editBtn.textContent === "EDIT") {
-         editBtn.textContent = "SAVE";
-      }
-      if (editBtn.textContent === "SAVE") {
-         editBtn.textContent = "EDIT";
-      }
       let todos = JSON.parse(localStorage.todos);
       for (var i = 0; i < todos.length; i++) {
          if (e.target.parentElement.parentElement.firstElementChild.textContent === todos[i].text) {
             todoText.contentEditable = true;
             todoText.focus();
             todoText.textContent = "";
-            editBtn.textContent = "SAVE";
             break;
          }
          todos[i].text = todoText.textContent;
       }
-      localStorage.setItem("todos", JSON.stringify(todos));
+      saveTodos(todos);
    });
+
+   */
 
    removeBtn.textContent = "REMOVE";
    removeBtn.classList.add("removeButton");
@@ -119,7 +118,7 @@ const generateTodoDOM = (todo) => {
 
    removeBtn.addEventListener("click", (e) => {
       removeBtn.textContent = "";
-      editBtn.textContent = "";
+      // editBtn.textContent = "";
       e.target.parentElement.parentElement.remove();
       deleteTodo(e.target.parentElement.parentElement.textContent.trim());
    });
