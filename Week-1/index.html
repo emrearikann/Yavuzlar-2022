@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Yavuzlar To-Do App</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="./main.css" />
+   </head>
+   <body>
+      <header class="container">
+         <h1><b>Yavuzlar To-Do App</b></h1>
+         <form id="task-form">
+            <input type="text" name="text" id="task-input" autocomplete="off" placeholder="Type something to do.." />
+            <input type="submit" id="task-submit" value="ADD" />
+         </form>
+      </header>
+
+      <main class="container">
+         <section class="task-list">
+            <h2>Tasks</h2>
+            <label> <input type="checkbox" id="hide-completed" style="margin-right: 0.5rem" />Hide Completed </label>
+
+            <div id="tasks">
+               <div class="task">
+                  <div class="content">
+                     <!-- add todos here -->
+                  </div>
+               </div>
+            </div>
+         </section>
+
+         <form id="task-form">
+            <input type="text" id="search" autocomplete="off" placeholder="Search.." />
+         </form>
+      </main>
+      <script src="./Scripts/functions.js"></script>
+      <script src="./Scripts/main.js"></script>
+   </body>
+</html>
