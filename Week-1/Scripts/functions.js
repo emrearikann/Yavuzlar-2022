@@ -1,5 +1,6 @@
 "use strict";
 
+// Creating 'todos' object.
 const getSavedTodos = () => {
    const todosJSON = localStorage.getItem("todos");
 
@@ -10,10 +11,12 @@ const getSavedTodos = () => {
    }
 };
 
+// Save todos to localStorage
 const saveTodos = (todos) => {
    localStorage.setItem("todos", JSON.stringify(todos));
 };
 
+// Remove todo from localStorage
 function deleteTodo(deleteTodo) {
    let todos = getSavedTodos();
    todos.forEach(function (todo, index) {
@@ -26,6 +29,8 @@ function deleteTodo(deleteTodo) {
    renderTodos(todos, filters);
 }
 
+// Todo filtering and hiding (it's using 'searchText' filter and 'hideCompleted' filter to do that and we took it from main.js
+// (commented as 'searching todos' and 'hiding todos'))
 const renderTodos = (todos, filters) => {
    const filteredTodos = todos.filter((todo) => {
       const searchTextMatch = todo.text.toLowerCase().includes(filters.searchText.toLowerCase());
@@ -45,6 +50,7 @@ const renderTodos = (todos, filters) => {
    });
 };
 
+// Creating list on DOM object, setting attributes, setting button actions and styling them dynamically
 const generateTodoDOM = (todo) => {
    const todoEl = document.createElement("label");
    const containerEl = document.createElement("div");
@@ -121,6 +127,7 @@ const generateTodoDOM = (todo) => {
    return todoEl;
 };
 
+// Printing how many todos are left
 const generateSummaryDOM = (incompletedTodos) => {
    const summary = document.createElement("h2");
    summary.textContent = `You have ${incompletedTodos.length} todos left`;
