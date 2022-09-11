@@ -1,0 +1,49 @@
+@import "global.css";
+
+.container {
+   max-width: 800px;
+   margin: 0 auto;
+}
+
+header {
+   padding: 2rem 1rem;
+   width: 100%;
+}
+
+.headerdiv {
+   display: flex;
+   justify-content: space-between;
+}
+
+header .headerdiv ul {
+   list-style-type: none;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+header .headerdiv ul li {
+   padding-left: 1rem;
+   font-size: large;
+   cursor: pointer;
+   transition: 0.4s;
+}
+
+header .headerdiv ul li:hover {
+   opacity: 0.8;
+}
+
+header .headerdiv ul li a {
+   color: #ffc812;
+}
+
+header .headerdiv ul li a {
+   text-decoration: none;
+}
+
+header h1 {
+   font-size: 2.5rem;
+   font-weight: 300;
+   color: #ffc812;
+   margin-bottom: 1rem;
+}

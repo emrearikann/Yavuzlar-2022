@@ -1,0 +1,205 @@
+@import "global.css";
+
+.container {
+   max-width: 800px;
+   margin: 0 auto;
+}
+
+header {
+   padding: 2rem 1rem;
+   width: 100%;
+}
+
+.headerdiv {
+   display: flex;
+   justify-content: space-between;
+}
+
+header .headerdiv ul {
+   list-style-type: none;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+header .headerdiv ul li {
+   padding-left: 1rem;
+   font-size: large;
+   cursor: pointer;
+   transition: 0.4s;
+}
+
+header .headerdiv ul li:hover {
+   opacity: 0.8;
+}
+
+header .headerdiv ul li a {
+   color: #ffc812;
+}
+
+header .headerdiv ul li a {
+   text-decoration: none;
+}
+
+header h1 {
+   font-size: 2.5rem;
+   font-weight: 300;
+   color: #ffc812;
+   margin-bottom: 1rem;
+}
+
+#task-form {
+   display: flex;
+}
+
+#task-input,
+#task-submit,
+#search,
+.text {
+   appearance: none;
+   border: none;
+   outline: none;
+   background: none;
+}
+
+#task-input {
+   flex: 1 1 0%;
+   background-color: #262626;
+   padding: 1rem;
+   border-radius: 1rem;
+   margin-right: 1rem;
+   color: #ffc812;
+   font-size: 1.25rem;
+}
+
+#task-input::placeholder {
+   color: gray;
+}
+
+#task-submit {
+   color: #ffc812;
+   font-size: 1.25rem;
+   font-weight: 700;
+   cursor: pointer;
+   transition: 0.4s;
+}
+
+#task-submit:hover {
+   opacity: 0.8;
+}
+
+main {
+   flex-direction: 1 1 0%;
+   padding: 2rem 1rem;
+   width: 100%;
+}
+
+.task-list {
+   padding: 1rem;
+}
+
+.task-list h2 {
+   font-size: 1.25rem;
+   font-weight: 300;
+   color: #ffc812;
+   margin-bottom: 1rem;
+}
+
+#tasks .task {
+   justify-content: space-between;
+   background-color: #262626;
+   padding: 1rem;
+   border-radius: 1rem;
+   margin-bottom: 1rem;
+}
+
+#tasks .task .content .text {
+   color: #ffc812;
+   font-size: 1.125rem;
+   width: 100%;
+   display: block;
+   transition: 0.4s;
+}
+
+#tasks .task .content .text:not(:read-only) {
+   color: #ffc812;
+}
+
+#tasks .task .actions {
+   display: flex;
+   margin: 0 0.5rem;
+}
+
+.task .actions button {
+   cursor: pointer;
+   margin: 0 0.5rem;
+   font-size: 1.125rem;
+   font-weight: 700;
+   text-transform: uppercase;
+   transition: 0.4s;
+}
+
+.task .actions button:hover {
+   opacity: 0.8;
+}
+
+.task .actions .edit {
+   color: #ffc812;
+}
+
+.task .actions .delete {
+   color: crimson;
+}
+
+#search {
+   flex: 1 1 0%;
+   background-color: #262626;
+   padding: 1rem;
+   border-radius: 1rem;
+   margin-right: 1rem;
+   color: #ffc812;
+   font-size: 1.25rem;
+}
+
+#search::placeholder {
+   color: gray;
+}
+
+.removeButton {
+   cursor: pointer;
+   background: transparent;
+   outline: none;
+   border: none;
+   color: #ffc812;
+   padding-left: 1rem;
+}
+
+.todoListItem {
+   text-decoration: none;
+   /* cursor: pointer; */
+   background: transparent;
+   border: 1px solid #423e47;
+   margin: 1.6rem 0 0 0;
+   padding: 1rem 1.6rem;
+   display: block;
+   transition: background 0.3s ease;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   width: 100%;
+}
+
+.containerTodoListItem {
+   display: flex;
+   font-weight: 300;
+   align-items: baseline;
+   justify-content: space-between;
+}
+
+.todoSpan {
+   margin-left: 0.5rem;
+}
+
+.todoDone {
+   text-decoration: line-through;
+}

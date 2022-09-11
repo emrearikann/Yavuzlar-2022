@@ -1,0 +1,14 @@
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+html,
+body {
+   height: fill;
+   display: flex;
+   flex-direction: column;
+   background: #262626;
+   color: #ffc812;
+}
