@@ -1,0 +1,5 @@
+Sisteme ve database kısmına aynı anda resim yüklenemiyor (enctype error).
+
+Filtreleme işlemi javascript ile yapıldığından dolayı filtrelemeden sonra bloglar yeniden render edilemiyor.
+
+emre@gmail.com / 123 ile giriş yapılabilir.
